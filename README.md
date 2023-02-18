@@ -1,2 +1,2 @@
 # My Blogs
-- [Hello World](./blod/20230218-helloworld.md)
+- [Hello World](./blog/20230218-helloworld.md)
