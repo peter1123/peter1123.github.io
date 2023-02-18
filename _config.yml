@@ -1,4 +1,5 @@
-  theme: jekyll-theme-cayman
-
-  include:
+theme: jekyll-theme-cayman
+title: 老马的部落格
+description: Peter1123
+include:
       README.md
