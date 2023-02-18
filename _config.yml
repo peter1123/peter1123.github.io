@@ -2,6 +2,6 @@ remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-remote-theme
 title: 老马的部落格
-description: Peter1123
+description: Peter112
 include:
       README.md
