@@ -1,6 +1,5 @@
-remote_theme: mmistakes/minimal-mistakes
-plugins:
-  - jekyll-remote-theme
+theme: jekyll-theme-cayman
+
 title: 老马的部落格
 description: Peter112
 include:
