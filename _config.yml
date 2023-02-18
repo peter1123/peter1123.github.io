@@ -9,11 +9,12 @@ description: >
   一些折腾的回忆
 # Build settings
 
-theme: minima
+remote_theme: jekyll/minima
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
 
 # Theme-specific settings
 
