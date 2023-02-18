@@ -1,2 +1,4 @@
+  theme: jekyll-theme-cayman
+
   include:
       README.md
