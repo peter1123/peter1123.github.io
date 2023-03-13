@@ -15,7 +15,7 @@ def convert_to_hevc_qsv(input_path, output_path):
     """
     # 调用ffmpeg进行转换
     stream = ffmpeg.input(input_path,hwaccel_output_format='qsv',vcodec='h264_qsv')
-    stream = ffmpeg.output(stream, output_path,vcodec='hevc_qsv',acodec='copy',preset='veryslow',global_quality=25,look_ahead=1)
+    stream = ffmpeg.output(stream, output_path,vcodec='hevc_qsv',acodec='copy',preset='veryslow')
     ffmpeg.run(stream,overwrite_output=True)
 
 def get_video_format(file_path):
