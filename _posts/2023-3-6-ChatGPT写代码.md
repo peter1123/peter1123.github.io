@@ -6,7 +6,7 @@ import os
 import subprocess
 import json
 
-input_folder = r"C:\Users\Peter_Xu\OneDrive - Dell Technologies\Training\VCF"
+input_folder = r"C:\APP\Test"
 output_folder = r"C:\APP\mp4"
 
 # 遍历文件夹下的所有文件，包括子文件夹
