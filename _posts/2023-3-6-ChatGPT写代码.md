@@ -30,8 +30,8 @@ for root, dirs, files in os.walk(input_folder):
                 # 使用ffmpeg进行格式转换
                 cmd = f'ffmpeg -y -init_hw_device qsv:hw,child_device_type=d3d11va -hwaccel_output_format qsv -loglevel verbose -i "{input_path}" -c:v hevc_qsv -c:a copy -preset veryslow -global_quality 25 -look_ahead 1 -pix_fmt nv12 "{output_path}"'
                 if subprocess.run(cmd,shell=True).returncode==0:
-                    os.remove()
-                    print(f"文件 {input_path} 转换成功，已删除源文件")
+                    os.replace(output_path, input_path)
+                    print(f"文件 {input_path} 转换成功，已替换源文件")
                 else:
                     print(f"文件 {input_path} 转换失败，请检查输出信息")
 ```
