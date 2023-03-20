@@ -1,8 +1,11 @@
 jellyfin自动更新SSL证书
 
 Windows平台
+
 Jellyfin没有注册为系统服务
+
 需要将certbot和openssl添加到环境变量中
+
 把下面的powershell脚本添加到计划任务中
 
 ```powershell
