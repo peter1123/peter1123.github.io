@@ -61,3 +61,23 @@ minima:
 # Set to `true` to show excerpts on the homepage.
 #
 # show_excerpts: false
+markdown: kramdown
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: true
+    block:
+      line_numbers: false
+      start_line: 1
+      end_line: -1
+      line_fenced_code_blocks: false
