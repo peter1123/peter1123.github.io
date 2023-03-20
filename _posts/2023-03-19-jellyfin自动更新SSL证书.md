@@ -1,7 +1,3 @@
-* content
-{:toc}
-# jellyfin自动更新SSL证书
-
 Windows平台
 
 Jellyfin没有注册为系统服务
