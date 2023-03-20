@@ -7,6 +7,7 @@ author:
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
   一些折腾的回忆
+
 # Build settings
 
 remote_theme: jekyll/minima
@@ -15,6 +16,14 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
+  - jekyll-toc  # add jekyll-toc plugin for generating table of contents
+
+# Table of Contents (TOC) configuration
+# Use jekyll-toc plugin for generating table of contents
+toc:
+  enabled: true   # Enable table of contents
+  min_depth: 2    # Minimum heading depth (h2, h3, etc) to include in TOC
+  max_depth: 3    # Maximum heading depth (h2, h3, etc) to include in TOC
 
 # Theme-specific settings
 
