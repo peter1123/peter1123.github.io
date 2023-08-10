@@ -29,11 +29,11 @@ toc:
 # Theme-specific settings
 jekyll_admin:
   hidden_links:
-    - posts
-    - pages
-    - staticfiles
-    - datafiles
-    - configuration
+#    - posts
+#    - pages
+#    - staticfiles
+#    - datafiles
+#    - configuration
   homepage: "pages"
 
 minima:
