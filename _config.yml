@@ -17,7 +17,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-toc  # add jekyll-toc plugin for generating table of contents
-
+  - jekyll-compose
 
 # Table of Contents (TOC) configuration
 # Use jekyll-toc plugin for generating table of contents
@@ -30,7 +30,7 @@ toc:
 
 
 minima:
-  skin: dark
+  skin: solarized
   # Minima date format.
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
   #
@@ -47,7 +47,7 @@ minima:
   #   - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ" }
   #   - { platform: instagram,      user_url: "https://www.instagram.com/jekyll" }
   #   - { platform: keybase,        user_url: "https://keybase.io/jekyll" }
-     - { platform: linkedin,       user_url: "https://www.linkedin.com/in/peter1123/" }
+  #   - { platform: linkedin,       user_url: "https://www.linkedin.com/in/jekyll" }
   #   - { platform: microdotblog,   user_url: "https://micro.blog/jekyll" }
   #   - { platform: pinterest,      user_url: "https://www.pinterest.com/jekyll" }
   #   - { platform: stackoverflow,  user_url: "https://stackoverflow.com/users/1234567/jekyll" }
@@ -63,7 +63,7 @@ minima:
 
 # Set to `true` to show excerpts on the homepage.
 #
-# show_excerpts: true
+# show_excerpts: false
 markdown: kramdown
 kramdown:
   auto_ids: true
