@@ -17,6 +17,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-toc  # add jekyll-toc plugin for generating table of contents
+  - jekyll_admin
 
 # Table of Contents (TOC) configuration
 # Use jekyll-toc plugin for generating table of contents
@@ -26,6 +27,14 @@ toc:
   max_depth: 3    # Maximum heading depth (h2, h3, etc) to include in TOC
 
 # Theme-specific settings
+jekyll_admin:
+  hidden_links:
+    - posts
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration
+  homepage: "pages"
 
 minima:
   skin: dark
