@@ -63,7 +63,7 @@ minima:
 
 # Set to `true` to show excerpts on the homepage.
 #
-show_excerpts: true
+# show_excerpts: true
 markdown: kramdown
 kramdown:
   auto_ids: true
