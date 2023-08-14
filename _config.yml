@@ -18,6 +18,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-toc  # add jekyll-toc plugin for generating table of contents
   - jekyll-compose
+  - jekyll-archives
 
 # Table of Contents (TOC) configuration
 # Use jekyll-toc plugin for generating table of contents
