@@ -24,10 +24,9 @@ jekyll-archives:
   enabled: year
   layout: archive
   permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
+    year: '/archives/year/:year/'
+    month: '/archives/month/:year-:month/'
+    tag: '/archives/tag/:name/'
     category: '/category/:name/'
 # Table of Contents (TOC) configuration
 # Use jekyll-toc plugin for generating table of contents
