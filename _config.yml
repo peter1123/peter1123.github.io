@@ -19,7 +19,16 @@ plugins:
   - jekyll-toc  # add jekyll-toc plugin for generating table of contents
   - jekyll-compose
   - jekyll-archives
-
+  
+jekyll-archives:
+  enabled: year
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
 # Table of Contents (TOC) configuration
 # Use jekyll-toc plugin for generating table of contents
 toc:
