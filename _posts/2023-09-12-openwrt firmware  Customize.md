@@ -1,9 +1,10 @@
 为了定制openwrt的firmware，可以从官网提供的链接完成
+
 https://firmware-selector.openwrt.org/?version=22.03.5&target=ramips%2Fmt7621&id=xiaomi_mi-router-ac2100
 
 Installed Packages
 ···
-base-files busybox ca-bundle dnsmasq-full dropbear firewall4 fstools kmod-gpio-button-hotplug kmod-leds-gpio kmod-mt7603 kmod-mt7615-firmware kmod-mt7615e kmod-nft-offload libc libgcc libustream-wolfssl logd mtd netifd nftables odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd wpad-wolfssl	
+base-files busybox ca-bundle dnsmasq-full dropbear firewall4 fstools kmod-gpio-button-hotplug kmod-leds-gpio kmod-mt7603 kmod-mt7615-firmware kmod-mt7615e kmod-nft-offload libc libgcc libustream-wolfssl logd luci mtd netifd nftables odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd procd-seccomp procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd uhttpd wpad-wolfssl
 ···
 
 Script to run on first boot (uci-defaults)
@@ -14,7 +15,7 @@ Script to run on first boot (uci-defaults)
 wlan_name="OpenWrt"
 wlan_password="12345678"
 #
-root_password="12345678"
+#root_password="12345678"
 lan_ip_address="192.168.0.1"
 
 pppoe_username="1234567890"
