@@ -28,6 +28,7 @@ if (Test-Path $pfxPath) {
 
 # 3.停止Jellyfin进程
 Stop-Process -Name Jellyfin.Windows.Tray -Force
+Stop-Process -Name Jellyfin -Force
 
 # 4.使用standalone方式运行Certbot获取SSL证书
 certbot certonly --standalone --force-renewal -d $domain
