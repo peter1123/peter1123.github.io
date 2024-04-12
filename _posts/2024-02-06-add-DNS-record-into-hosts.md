@@ -22,7 +22,7 @@ AAAA_RECORDS=$(echo "$API_RESPONSE" | jq -r '.[] | select(.record_type == "AAAA"
 
 sed -i "/$DOMAIN/d" /etc/hosts
 
-# Create or append to /etc/myhosts file with a timestamp
+# Create or append to /etc/hosts file with a timestamp
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 # Create or append to /etc/hosts file
 echo "# DNS records for $DOMAIN (Updated: $TIMESTAMP)." | tee -a /etc/hosts
@@ -34,5 +34,5 @@ for IPV6 in $AAAA_RECORDS; do
     echo "$IPV6 $DOMAIN" | tee -a /etc/hosts
 done
 
-echo "DNS records added to /etc/myhosts (Updated: $TIMESTAMP)."
+echo "DNS records added to /etc/hosts (Updated: $TIMESTAMP)."
 ```
