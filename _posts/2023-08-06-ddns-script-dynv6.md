@@ -1,54 +1,37 @@
-弄了个脚本来注册ddns到dynv6
+弄了个PowerShell脚本来注册ddns到dynv6
 
-写的powershell
-
-Windows下建议下载一个原版的curl.exe替代Invoke-WebRequest
-
-取IPv6公网地址可以用准备了2种方法
+请升级到powershell 7.x
+- Invoke-RestMethod才能支持NoProxy，如果不需要这个参数则无所谓了。
+- 需要先建立一个日志
 ```powershell
-# Verify number of ipv6 has listed
-# $current_lines = Get-NetIPAddress -AddressFamily IPv6| where { $_.PrefixOrigin -match 'RouterAdvertisement'}| where { $_.SuffixOrigin -match 'Link'} | where {$_.AddressState -match 'Preferred'} | findstr -I -N IPAddress | %{ $_.Split(' ')[10]; } | Measure-Object | findstr.exe -I -N Count | %{ $_.split(' ')[5];}
+New-EventLog -LogName "ddns" -Source "ddns"
+```
 
-# if is different of the 1, restart the adapter
-# if ($current_lines -ne 1){
-# 	 Get-NetAdapter | ? Name -eq Ethernet | Disable-NetAdapter -Confirm:$false
-#	 Get-NetAdapter | ? Name -eq Ethernet | Enable-NetAdapter -Confirm:$false
-#	 Start-Sleep -s 10
-# }
+以下是脚本，可以保存到计划任务里执行
+```powershell
+#Requires -Version 7.0
 
 # Get actual ipv6
-#$current = Get-NetIPAddress -AddressFamily IPv6| where { $_.PrefixOrigin -match 'RouterAdvertisement'}| where { $_.SuffixOrigin -match 'Link'} | where {$_.AddressState -match 'Preferred'} | findstr -I -N IPAddress | %{ $_.Split(' ')[10]; }
 $current = Get-NetIPAddress -AddressFamily IPv6| Where-Object { $_.PrefixOrigin -match 'RouterAdvertisement'}| Where-Object { $_.SuffixOrigin -match 'Link'} | Where-Object {$_.AddressState -match 'Preferred'} | Where-Object {$_.IPAddress -like '24*'}| Select-Object -ExpandProperty IPAddress
-#$current = (Invoke-WebRequest -uri 6.ipw.cn).content
-#$current = curl.exe 6.ipw.cn
-# File save ipv6
-#$file = ($HOME + "\dynv6.addr6")
 
-#$log = ($HOME + "\dynv6.log")
-
-$token = "*************"
-
-$hostname ="maxtang.dynv6.net"
-
-# Test exist $file, if not create then
-#if (Test-Path -Path $file) {
-#       $old = Get-Content $file
-#   } else {
-#		echo "vazio" > $file
-#		$old = Get-Content $file
-#	}
-
-# Test old ipv6 with collect, case equals not update dynv6
-#if ($old -eq $current) {
-#    ((Get-Date -format dd/MM/yyyy-HH:mm:s) + " - IPv6 address unchanged") >> $log
-#    } else {
-#		$url = ("http://dynv6.com/api/update?hostname=" + $hostname + "&ipv6=" + $current + "&token=" + $token)
-#		Invoke-RestMethod -Uri $url
-#		echo $current > $file
-#		((Get-Date -format dd/MM/yyyy-HH:mm:s) +" - IPv6 address updated") >> $log
-#    }
-
+$token = "your token"
+$hostname ="your domain"
 $url = ("http://dynv6.com/api/update?hostname=" + $hostname + "&ipv6=" + $current + "&token=" + $token)
-#Invoke-RestMethod -Uri $url
-curl.exe $url
+
+try {
+    # 尝试执行 Invoke-RestMethod 并获取返回结果
+    $response = Invoke-RestMethod -NoProxy -Uri $url
+
+    # 判断返回值是否包含 "addresses updated"
+    if ($response -like "*addresses updated*") {
+        # 如果返回值表明成功，则写入成功日志
+        Write-EventLog -LogName "ddns" -Source "ddns" -EventID 3102 -EntryType Information -Message "$hostname($current)已更新" -Category 1 -RawData 10,20
+    } else {
+        # 如果返回值不符合预期，则记录警告日志
+        Write-EventLog -LogName "ddns" -Source "ddns" -EventID 3104 -EntryType Warning -Message "返回值异常：$response" -Category 1
+    }
+} catch {
+    # 捕获异常并记录错误日志
+    Write-EventLog -LogName "ddns" -Source "ddns" -EventID 3103 -EntryType Error -Message "更新失败：$($_.Exception.Message)" -Category 1
+}
 ```
