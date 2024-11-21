@@ -1,4 +1,4 @@
-Windows平台
+# Windows平台
 
 Jellyfin没有注册为系统服务
 
@@ -30,7 +30,7 @@ if (Test-Path $pfxPath) {
 Stop-Process -Name Jellyfin.Windows.Tray -Force
 Stop-Process -Name Jellyfin -Force
 
-# 4.使用standalone方式运行Certbot获取SSL证书
+# 4.使用standalone方式运行Certbot获取SSL证书; 前提是你的80/443端口没有被ISP封掉；否则建议改成dns-01方式
 certbot certonly --standalone --force-renewal -d $domain
 
 # 5.将证书转换为PFX格式
