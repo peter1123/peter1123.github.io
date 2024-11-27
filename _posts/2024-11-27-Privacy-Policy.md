@@ -1,8 +1,8 @@
 # Privacy Policy
 
-**Effective Date:** [Insert Date]
+**Effective Date:** [2024-11-27]
 
-This Privacy Policy outlines how [Your Company Name or Extension Name] ("we," "our," "us") collects, uses, and protects your personal information when you use our Chrome extension ("Extension"). We value your privacy and are committed to safeguarding your personal data.
+This Privacy Policy outlines how we collects, uses, and protects your personal information when you use our Chrome extension ("Extension"). We value your privacy and are committed to safeguarding your personal data.
 
 ## 1. Information We Collect
 
